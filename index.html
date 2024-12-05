@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Congratulations to Our Group!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+      color: #333;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin: 20px 0;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ff9a9e, 0 0 20px #ff9a9e, 0 0 30px #ff6f91;
+      }
+      to {
+        text-shadow: 0 0 20px #ffc3a0, 0 0 30px #ff9a9e, 0 0 40px #ff6f91;
+      }
+    }
+
+    p {
+      font-size: 1.2em;
+      margin: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 20px auto;
+    }
+
+    li {
+      font-size: 1.5em;
+      margin: 10px 0;
+      color: #ff6f91;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-20px);
+      }
+      60% {
+        transform: translateY(-10px);
+      }
+    }
+
+    button {
+      background: #ff6f91;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background-color: #ff3f6c;
+    }
+
+    .celebrate {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border-radius: 50%;
+      animation: fall 4s linear infinite;
+    }
+
+    @keyframes fall {
+      from {
+        transform: translateY(-100%);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="celebrate"></div>
+  <h1>Congratulations, Group Members!</h1>
+  <p>Celebrating the hard work and success of our amazing group:</p>
+  <ul>
+    <li>JAMES KATANA</li>
+    <li>ASINYEN ANJELINE</li>
+    <li>FREDRICK OMONDI</li>
+    <li>EVANS KOECH</li>
+    <li>DAISY KOMEN</li>
+    <li>NELLY CHEBET</li>
+    <li>DENNIS WEKESA</li>
+    <li>SYLVIA WALUCHIO</li>
+	<li>PETER MBURU NJOROGE</li>
+  </ul>
+  <p>Your dedication and teamwork have made this journey unforgettable!</p>
+  <p><strong>Kenya School of TVET - Gigiri</strong></p>
+  <p><strong>Graduation Ceremony:</strong> December 10, 2024, 8 AM</p>
+  <p><strong>Venue:</strong> School Grounds, Gigiri, Nairobi</p>
+  <p>Thank you for the incredible memories and success we shared!</p>
+  <button onclick="celebrate()">Click to Celebrate Now!</button>
+
+  <script>
+    // Generate confetti
+    function createConfetti() {
+      const container = document.querySelector('.celebrate');
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDelay = Math.random() * 2 + 's';
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      container.appendChild(confetti);
+
+      setTimeout(() => confetti.remove(), 4000);
+    }
+
+    // Trigger confetti burst
+    function celebrate() {
+      for (let i = 0; i < 100; i++) {
+        setTimeout(createConfetti, i * 30);
+      }
+    }
+
+    // Auto-start confetti for a festive touch
+    setInterval(createConfetti, 200);
+  </script>
+</body>
+</html>
